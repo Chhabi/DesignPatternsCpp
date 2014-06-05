@@ -28,6 +28,9 @@
     <Filter Include="Header Files\Shapes\Qt">
       <UniqueIdentifier>{236fb725-cfb5-42e8-a1e7-6beb9850eeaa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Visitors">
+      <UniqueIdentifier>{457e8c6b-44cb-4181-9c1b-2e1212d8f1d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -71,6 +74,12 @@
     </ClInclude>
     <ClInclude Include="QtShapes.hpp">
       <Filter>Header Files\Shapes\Qt</Filter>
+    </ClInclude>
+    <ClInclude Include="countingvisitor.hpp">
+      <Filter>Header Files\Visitors</Filter>
+    </ClInclude>
+    <ClInclude Include="shapevisitor.hpp">
+      <Filter>Header Files\Shapes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

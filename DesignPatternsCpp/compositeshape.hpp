@@ -19,8 +19,12 @@ namespace shapes
 
 		CompositeShape(const CompositeShape &) = delete; // for now, will implement with ProtoType
 
+		std::vector<std::shared_ptr<Shape>>& getShapes()
+		{
+			return this->shapes;
+		}
 
-		const std::vector<std::shared_ptr<Shape>> getShapes() const
+		const std::vector<std::shared_ptr<Shape>>& getShapes() const
 		{
 			return this->shapes;
 		}
@@ -30,6 +34,11 @@ namespace shapes
 			return std::accumulate(begin(shapes), end(shapes), 0.0, [](double agg, const ShapePtr& s) { return agg + s->calcArea(); });
 		}
 
+		virtual void accept(ShapeVisitor &visitor) override
+		{
+			visitor.visitCompositeShape(*this);
+		}
+
 		void add(std::shared_ptr<Shape> shape)
 		{
 			this->shapes.push_back(shape);
@@ -37,10 +46,14 @@ namespace shapes
 
 		bool remove(std::shared_ptr<Shape> shape)
 		{
-			auto currentEnd = end(this->shapes);
-			auto newEnd = std::remove(begin(this->shapes), currentEnd, shape);
-			this->shapes.erase(newEnd, currentEnd);
-			return newEnd != currentEnd;
+			auto position = find(begin(this->shapes), end(this->shapes), shape);
+			if (position != end(this->shapes))
+			{
+				this->shapes.erase(position);
+				return true;
+			}
+
+			return false;
 		}
 	};
 }

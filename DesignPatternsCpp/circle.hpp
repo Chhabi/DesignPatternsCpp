@@ -27,5 +27,10 @@ namespace shapes
 		{
 			return this->radius * this->radius * M_PI;
 		}
+
+		virtual void accept(ShapeVisitor &visitor) override
+		{
+			visitor.visitCircle(*this);
+		}
 	};
 }

@@ -21,5 +21,10 @@ namespace shapes
 		{
 			return this->width * this->height;
 		}
+
+		virtual void accept(ShapeVisitor &visitor) override
+		{
+			visitor.visitRectangle(*this);
+		}
 	};
 }

@@ -23,6 +23,8 @@
 #include "GLShapes.hpp"
 #include "QtShapes.hpp"
 
+#include "countingvisitor.hpp"
+
 using namespace std;
 using namespace construction;
 using namespace shapes;
@@ -43,12 +45,17 @@ public:
 		auto rootShape = this->builder->construct(*shapeFactory);
 		auto totalArea = rootShape->calcArea();
 		cout << "total area:" << totalArea << endl;
+
+		visitors::CountingVisitor counter;
+		rootShape->accept(counter);
+
+		cout << "circles: " << counter.circles << " rectangles: " << counter.rectangles << " composites: " << counter.compositeShapes << endl;
 	}
 };
 
 int main(int argc, char** argv)
 {
-	Program p(make_unique<CommandlineBuilder>(), 
+	Program p(make_unique<HardCodedBuilder>(), 
 			make_unique<shapes::gdi::GDIShapeFactory>());
 
 	p.run();
