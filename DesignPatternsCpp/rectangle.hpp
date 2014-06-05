@@ -15,7 +15,7 @@ public:
 	{
 	}
 
-	virtual double calcArea()
+	virtual double calcArea() const
 	{
 		return this->width * this->height;
 	}
