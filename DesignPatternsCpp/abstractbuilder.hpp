@@ -6,6 +6,7 @@
 namespace shapes
 {
 	class Shape;
+	class ShapeFactory;
 }
 
 namespace construction
@@ -14,6 +15,6 @@ namespace construction
 	class AbstractBuilder
 	{
 	public:
-		virtual std::shared_ptr<shapes::Shape> construct() = 0;
+		virtual std::shared_ptr<shapes::Shape> construct(shapes::ShapeFactory &factory) = 0;
 	};
 }

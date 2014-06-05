@@ -19,6 +19,15 @@
     <Filter Include="Header Files\Shapes">
       <UniqueIdentifier>{f7e4f705-85a0-4377-87d7-c7bcef74a335}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Shapes\GL">
+      <UniqueIdentifier>{dc4a6156-2ed5-4aa1-84d2-588df48ed6af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shapes\GDI">
+      <UniqueIdentifier>{42409bcc-7c06-47fc-aacc-e922f3410754}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shapes\Qt">
+      <UniqueIdentifier>{236fb725-cfb5-42e8-a1e7-6beb9850eeaa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -50,6 +59,18 @@
     </ClInclude>
     <ClInclude Include="hardcodedbuilder.hpp">
       <Filter>Header Files\Construction</Filter>
+    </ClInclude>
+    <ClInclude Include="GLShapes.hpp">
+      <Filter>Header Files\Shapes\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="GDIShapes.hpp">
+      <Filter>Header Files\Shapes\GDI</Filter>
+    </ClInclude>
+    <ClInclude Include="shapefactory.hpp">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="QtShapes.hpp">
+      <Filter>Header Files\Shapes\Qt</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

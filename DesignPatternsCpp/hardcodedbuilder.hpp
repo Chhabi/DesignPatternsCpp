@@ -14,7 +14,7 @@ namespace construction
 	class HardCodedBuilder : public AbstractBuilder
 	{
 	public:
-		virtual std::shared_ptr<shapes::Shape> construct()
+		virtual std::shared_ptr<shapes::Shape> construct(shapes::ShapeFactory &factory) override
 		{
 			using namespace std;
 			using namespace shapes;

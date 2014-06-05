@@ -1,6 +1,7 @@
 #pragma once
 
 #include "shape.hpp"
+#include <vector>
 
 namespace shapes
 {
@@ -12,8 +13,8 @@ namespace shapes
 		CompositeShape()
 		{}
 
-		CompositeShape(std::initializer_list<ShapePtr> list)
-			: shapes(list)
+		CompositeShape(std::vector<ShapePtr> shapes)
+			: shapes(std::move(shapes))
 		{}
 
 		CompositeShape(const CompositeShape &) = delete; // for now, will implement with ProtoType

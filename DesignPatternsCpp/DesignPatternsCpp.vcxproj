@@ -83,9 +83,13 @@
     <ClInclude Include="circle.hpp" />
     <ClInclude Include="commandlinebuilder.hpp" />
     <ClInclude Include="compositeshape.hpp" />
+    <ClInclude Include="GDIShapes.hpp" />
+    <ClInclude Include="GLShapes.hpp" />
     <ClInclude Include="hardcodedbuilder.hpp" />
+    <ClInclude Include="QtShapes.hpp" />
     <ClInclude Include="rectangle.hpp" />
     <ClInclude Include="shape.hpp" />
+    <ClInclude Include="shapefactory.hpp" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
