@@ -2,7 +2,7 @@
 
 #include "shape.hpp"
 
-class Circle : Shape
+class Circle : public Shape
 {
 	double centerX;
 	double centerY;
@@ -20,4 +20,9 @@ public:
 
 	inline double getRadius() { return this->radius; }
 	inline void setRadius(double r) { this->radius = r; }
+
+	virtual double calcArea()
+	{
+		return this->radius * this->radius * M_PI;
+	}
 };

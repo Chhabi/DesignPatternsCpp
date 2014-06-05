@@ -15,4 +15,8 @@ public:
 	{
 	}
 
+	virtual double calcArea()
+	{
+		return this->width * this->height;
+	}
 };
