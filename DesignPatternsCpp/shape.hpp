@@ -1,8 +1,11 @@
 
 #pragma once
 
-class Shape
+namespace shapes
 {
-public:
-	virtual double calcArea() const = 0;
-};
+	class Shape
+	{
+	public:
+		virtual double calcArea() const = 0;
+	};
+}

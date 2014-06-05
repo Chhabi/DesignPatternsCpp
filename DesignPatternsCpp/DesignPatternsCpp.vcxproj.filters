@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Construction">
+      <UniqueIdentifier>{bfcd067a-08a9-47b5-8f5c-82f118f8fba6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Shapes">
+      <UniqueIdentifier>{f7e4f705-85a0-4377-87d7-c7bcef74a335}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -24,17 +30,26 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="shape.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="rectangle.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="circle.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="compositeshape.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="rectangle.hpp">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="shape.hpp">
+      <Filter>Header Files\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="abstractbuilder.hpp">
+      <Filter>Header Files\Construction</Filter>
+    </ClInclude>
+    <ClInclude Include="commandlinebuilder.hpp">
+      <Filter>Header Files\Construction</Filter>
+    </ClInclude>
+    <ClInclude Include="hardcodedbuilder.hpp">
+      <Filter>Header Files\Construction</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -79,8 +79,11 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="abstractbuilder.hpp" />
     <ClInclude Include="circle.hpp" />
+    <ClInclude Include="commandlinebuilder.hpp" />
     <ClInclude Include="compositeshape.hpp" />
+    <ClInclude Include="hardcodedbuilder.hpp" />
     <ClInclude Include="rectangle.hpp" />
     <ClInclude Include="shape.hpp" />
     <ClInclude Include="stdafx.h" />

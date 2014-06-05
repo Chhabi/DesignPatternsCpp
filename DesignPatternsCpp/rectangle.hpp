@@ -3,20 +3,23 @@
 
 #include "shape.hpp"
 
-class Rectangle : public Shape
+namespace shapes
 {
-	double x;
-	double y;
-	double width;
-	double height;
-public:
-	Rectangle(double x, double y, double w, double h)
-		: x(x), y(y), width(w), height(h)
+	class Rectangle : public Shape
 	{
-	}
+		double x;
+		double y;
+		double width;
+		double height;
+	public:
+		Rectangle(double x, double y, double w, double h)
+			: x(x), y(y), width(w), height(h)
+		{
+		}
 
-	virtual double calcArea() const
-	{
-		return this->width * this->height;
-	}
-};
+		virtual double calcArea() const override
+		{
+			return this->width * this->height;
+		}
+	};
+}

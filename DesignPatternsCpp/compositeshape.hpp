@@ -2,41 +2,44 @@
 
 #include "shape.hpp"
 
-class CompositeShape : public Shape
+namespace shapes
 {
-	typedef std::shared_ptr<Shape> ShapePtr;
-	std::vector<ShapePtr> shapes;
-public:
-	CompositeShape()
-	{}
-
-	CompositeShape(std::initializer_list<ShapePtr> list)
-		: shapes(list)
-	{}
-
-	CompositeShape(const CompositeShape &) = delete; // for now, will implement with ProtoType
-
-
-	const std::vector<std::shared_ptr<Shape>> getShapes() const
+	class CompositeShape : public Shape
 	{
-		return this->shapes;
-	}
+		typedef std::shared_ptr<Shape> ShapePtr;
+		std::vector<ShapePtr> shapes;
+	public:
+		CompositeShape()
+		{}
 
-	double calcArea() const
-	{
-		return std::accumulate(begin(shapes), end(shapes), 0.0, [](double agg, const ShapePtr& s) { return agg + s->calcArea(); });
-	}
+		CompositeShape(std::initializer_list<ShapePtr> list)
+			: shapes(list)
+		{}
 
-	void add(std::shared_ptr<Shape> shape)
-	{
-		this->shapes.push_back(shape);
-	}
+		CompositeShape(const CompositeShape &) = delete; // for now, will implement with ProtoType
 
-	bool remove(std::shared_ptr<Shape> shape)
-	{
-		auto currentEnd = end(this->shapes);
-		auto newEnd = std::remove(begin(this->shapes), currentEnd, shape);
-		this->shapes.erase(newEnd, currentEnd);
-		return newEnd != currentEnd;
-	}
-};
+
+		const std::vector<std::shared_ptr<Shape>> getShapes() const
+		{
+			return this->shapes;
+		}
+
+		double calcArea() const
+		{
+			return std::accumulate(begin(shapes), end(shapes), 0.0, [](double agg, const ShapePtr& s) { return agg + s->calcArea(); });
+		}
+
+		void add(std::shared_ptr<Shape> shape)
+		{
+			this->shapes.push_back(shape);
+		}
+
+		bool remove(std::shared_ptr<Shape> shape)
+		{
+			auto currentEnd = end(this->shapes);
+			auto newEnd = std::remove(begin(this->shapes), currentEnd, shape);
+			this->shapes.erase(newEnd, currentEnd);
+			return newEnd != currentEnd;
+		}
+	};
+}

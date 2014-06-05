@@ -10,25 +10,38 @@
 #include <numeric>
 #include <iostream>
 
-using namespace std;
+#include "abstractbuilder.hpp"
+#include "hardcodedbuilder.hpp"
+#include "commandlinebuilder.hpp"
 
-class Shape;
-using ShapePtr = std::shared_ptr<Shape>;
+#include "shape.hpp"
+#include "circle.hpp"
+#include "rectangle.hpp"
+#include "compositeshape.hpp"
+
+using namespace std;
+using namespace construction;
+using namespace shapes;
+
+class Program
+{
+	unique_ptr<AbstractBuilder> builder;
+public:
+	Program(unique_ptr<AbstractBuilder> builder_)
+		: builder(move(builder_))
+	{}
+
+	void run()
+	{
+		auto rootShape = this->builder->construct();
+		auto totalArea = rootShape->calcArea();
+		cout << "total area:" << totalArea << endl;
+	}
+};
 
 int main(int argc, char** argv)
 {
-	auto rootShape = make_unique<CompositeShape>();
-
-	rootShape->add(make_shared<Rectangle>(10.0, 30.0, 5.0, 4.0));
-	rootShape->add(make_shared<Circle>(10.0, 3.0, 13.0));
-
-	rootShape->add(make_shared<CompositeShape>(initializer_list<ShapePtr>({
-		make_shared<Rectangle>(12.0, 14.0, 2.0, 2.0),
-		make_shared<Circle>(15.0, 18.0, 2.0)
-	})));
-
-	auto totalArea = rootShape->calcArea();
-
-	cout << "total area:" << totalArea << endl;
+	Program p(make_unique<CommandlineBuilder>());
+	p.run();
 	return 0;
 }
