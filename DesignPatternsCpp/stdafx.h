@@ -15,6 +15,7 @@
 #include <cmath>
 #include <vector>
 #include <memory>
-
+#include <numeric>
+#include <algorithm>
 
 // TODO: reference additional headers your program requires here

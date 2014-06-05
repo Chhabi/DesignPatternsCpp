@@ -21,7 +21,7 @@ public:
 	inline double getRadius() { return this->radius; }
 	inline void setRadius(double r) { this->radius = r; }
 
-	virtual double calcArea()
+	virtual double calcArea() const
 	{
 		return this->radius * this->radius * M_PI;
 	}

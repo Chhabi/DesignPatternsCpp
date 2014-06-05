@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="circle.hpp" />
+    <ClInclude Include="compositeshape.hpp" />
     <ClInclude Include="rectangle.hpp" />
     <ClInclude Include="shape.hpp" />
     <ClInclude Include="stdafx.h" />

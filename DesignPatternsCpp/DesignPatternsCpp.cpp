@@ -5,6 +5,7 @@
 
 #include "circle.hpp"
 #include "rectangle.hpp"
+#include "compositeshape.hpp"
 #include <algorithm>
 #include <numeric>
 #include <iostream>
@@ -16,12 +17,18 @@ using ShapePtr = std::shared_ptr<Shape>;
 
 int main(int argc, char** argv)
 {
-	vector<ShapePtr> shapes;
+	auto rootShape = make_unique<CompositeShape>();
 
-	shapes.push_back(make_shared<Rectangle>(10.0, 30.0, 5.0, 4.0));
-	shapes.push_back(make_shared<Circle>(10.0, 3.0, 13.0));
+	rootShape->add(make_shared<Rectangle>(10.0, 30.0, 5.0, 4.0));
+	rootShape->add(make_shared<Circle>(10.0, 3.0, 13.0));
 
-	auto totalArea = std::accumulate(begin(shapes), end(shapes), 0.0, [](double agg, ShapePtr s) { return agg + s->calcArea(); });
+	rootShape->add(make_shared<CompositeShape>(initializer_list<ShapePtr>({
+		make_shared<Rectangle>(12.0, 14.0, 2.0, 2.0),
+		make_shared<Circle>(15.0, 18.0, 2.0)
+	})));
+
+	auto totalArea = rootShape->calcArea();
+
 	cout << "total area:" << totalArea << endl;
 	return 0;
 }

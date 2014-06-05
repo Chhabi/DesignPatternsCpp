@@ -4,5 +4,5 @@
 class Shape
 {
 public:
-	virtual double calcArea() = 0;
+	virtual double calcArea() const = 0;
 };
